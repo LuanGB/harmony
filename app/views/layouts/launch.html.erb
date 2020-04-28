@@ -8,6 +8,8 @@
   <meta name="keywords" content="free html5, free template, free bootstrap, html5, css3, mobile first, responsive" />
   <meta name="author" content="FREEHTML5.CO" />
 
+  <%= render 'application/favicon' %>
+
   <!-- Facebook and Twitter integration -->
   <meta property="og:title" content=""/>
   <meta property="og:image" content=""/>
@@ -32,7 +34,7 @@
   <%= javascript_include_tag 'launch' %>
 
   <script>
-    var d = new Date(new Date().getTime() + 800 * 120 * 120 * 2000);
+    var d = new Date(new Date('07/01/2020'));
 
     // default example
     simplyCountdown('.simply-countdown-one', {

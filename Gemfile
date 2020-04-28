@@ -12,10 +12,11 @@ gem 'listen', '3.2.1'
 
 group :development, :test do
   gem 'pry', '0.13.1'
+  gem 'dotenv', '2.7.5'
 end
 
 group :development do
-  gem 'dotenv', '2.7.5'
+  gem 'rails_real_favicon', '0.1.0'
 end
 
 group :test do
