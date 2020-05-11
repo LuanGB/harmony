@@ -23,6 +23,8 @@
 
   <link href='https://fonts.googleapis.com/css?family=Work+Sans:400,300,600,400italic,700' rel='stylesheet' type='text/css'>
 
+  <%= csrf_meta_tag %>
+
   <%= stylesheet_link_tag 'launch', media: 'all', 'data-turbolinks-track': 'reload' %>
 
   <%= javascript_include_tag 'launch/modernizr-2.6.2.min' %>
@@ -34,7 +36,7 @@
   <%= javascript_include_tag 'launch' %>
 
   <script>
-    var d = new Date(new Date('07/01/2020'));
+    var d = new Date(new Date('01/01/2021'));
 
     // default example
     simplyCountdown('.simply-countdown-one', {

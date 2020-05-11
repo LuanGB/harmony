@@ -1,4 +1,3 @@
 class Launch::MainPageController < LaunchController
-  def index
-  end
+  def index; end
 end

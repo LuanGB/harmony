@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  post 'email_subscriptions', to: 'launch/email_subscriptions#create'
+
   root 'launch/main_page#index'
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
