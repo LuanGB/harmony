@@ -1,0 +1,77 @@
+<div id="page">
+  <div id="fh5co-header" class="fh5co-cover" role="banner" style="background-image:url(<%= image_url("background-cover.png") %>);">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2 text-center">
+          <div class="display-t">
+            <div class="display-tc animate-box" data-animate-effect="fadeIn">
+              <h1>Em Breve!!</h1>
+              <h2>Site do Harmony Vocal</h2>
+              <div class="simply-countdown simply-countdown-one"></div>
+              <div class="row">
+                <h2>Me notifique quando estiver pronto</h2>
+                
+                <%= form_with(model: EmailSubscription.new, format: :js, scope: 'post', class: 'form-inline', id: 'fh5co-header-subscribe') do %>
+                  <div class="col-md-12 col-md-offset-0">
+                    <div class="form-group">
+                      <%= text_field_tag(:email, "", class: "form-control", placeholder: "Seja notificado por email") %>
+                      <%= button_tag("Enviar", class: "btn btn-primary submit-button", type: "button", "onclick" => 'signUpEmail()') %>
+                    </div>
+                  </div>
+                <% end %>
+              </div>
+              <div class="row">
+                <p class="success-email-submit">Email Cadastrado com Sucesso!</p>
+              </div>
+              <div class="row">
+                <ul class="fh5co-social-icons">
+                  <li><a target='_blank' href="https://www.instagram.com/harmonyvocal"><i class="icon-instagram-with-circle"></i></a></li>
+                  <li><a target='_blank' href="https://www.youtube.com/channel/UC-gFFesKTwUjFlP7JXTDumQ"><i class="icon-youtube-with-circle"></i></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer id="fh5co-footer" role="contentinfo">
+      <div class="container">
+
+        <div class="row copyright">
+          <div class="col-md-12 text-center">
+            <p style="margin: 3px">
+              <small class="block">&copy; 2016 <a href="http://freehtml5.co/" target="_blank">Free HTML5</a>. All Rights Reserved | Desenvolvido por <a target="_blank" href="https://github.com/LuanGB/">Luan Gonçalves Barbosa</a></small>
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </footer>
+  </div>
+
+</div>
+
+<script>
+  function signUpEmail() {
+    $.ajaxSetup({
+      headers: { 'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content') }
+    });
+
+    const formData = $('#fh5co-header-subscribe').serialize()
+
+    $.ajax({
+      method: "POST",
+      url: "<%= email_subscriptions_path %>",
+      data: formData
+    }).done(function( msg ) {
+      const success_message = $(".success-email-submit")
+      success_message.show()
+
+      setTimeout(function(){
+        success_message.fadeOut()
+      }, 3000);
+    });
+  }
+
+</script>
